@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+@foreach (var inv in @ViewBag.storeList)
+        {
+@Html.ActionLink((string)@inv.name, "StoreInventory", new { storeName = @inv.name })
+<br />
+<br />
+ }

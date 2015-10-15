@@ -1,0 +1,96 @@
+﻿@model IEnumerable<IS7012.ProjectAssignment.Models.Inventory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+@if ( User.IsInRole("Manager"))
+            {
+    @Html.ActionLink("Create New", "Create")
+}
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frameSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bikeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recSellingPrice)
+        </th>
+        <th>
+           Store
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.frameSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bikeType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.model)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recSellingPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.store.name)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) 
+            @if (User.IsInRole("Manager") || User.IsInRole("Employee"))
+            {<span>|</span> 
+            if (User.IsInRole("Manager"))
+            {
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <span>|</span>
+            }  
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            }
+            <span>|</span>
+            @if (!"booked".Equals(item.IsBooked))
+            { 
+            @Html.ActionLink("Reserve This Bike", "Reserve", new { id = item.Id })
+            }
+            else
+            {
+                <strong><span>Already Booked</span></strong>
+            }
+        </td>
+    </tr>
+}
+
+</table>

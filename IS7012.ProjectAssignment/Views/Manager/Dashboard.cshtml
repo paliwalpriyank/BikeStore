@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+<div>
+    <h2>
+        Store Sales Data Metrics
+    </h2>
+    @Html.ActionLink("Sales Dashboard", "Index", "Manager")
+
+</div>
+<div>
+    <h2>
+        Manage Store
+    </h2>
+    @Html.ActionLink("Manage Employees", "Index", "Employees")
+    <br />
+    @Html.ActionLink("Manage Stores", "Index", "Stores")
+
+</div>

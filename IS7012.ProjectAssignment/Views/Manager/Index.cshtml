@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Manager Portal</h2>
+<h3>Total Profit</h3>
+<h4> @ViewBag.totalProfit</h4>
+<h3>Total Profit Past Week</h3>
+<h4> @ViewBag.totalProfitWeek</h4>
+    <h3>Sales Data</h3>
+<div class="report ">
+    <table border="0" width="50%" class="table-striped">
+        <thead>
+        <th>Store</th>
+        <th>Total Sales</th>
+        </thead>
+        <tbody>
+            @foreach (var salestotal in (ViewBag.salesData))
+            {
+                <tr>
+
+                    <td>@salestotal.Key.name</td>
+                    <td>@salestotal.Value</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+
+
+
+    <table border="0" width="30%" class="table-striped">
+        <thead>
+        <th>Store</th>
+        <th>Total Sales($)</th>
+        </thead>
+        <tbody>
+            @foreach (var salestotalDol in (ViewBag.salesDataDollar))
+            {
+                <tr>
+
+                    <td>@salestotalDol.Key.name</td>
+                    <td>@salestotalDol.Value</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+
+
+
+    <h3>Total sales past week</h3>
+    <table border="0" width="50%" class="table-striped">
+        <thead>
+        <th>Store</th>
+        <th>Total Sales</th>
+        </thead>
+        <tbody>
+            @foreach (var salestotal in (ViewBag.tosaWeek))
+            {
+                <tr>
+                    <td>@salestotal.Key.name</td>
+                    <td>@salestotal.Value</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    <table border="0" width="30%" class="table-striped">
+        <thead>
+        <th>Store</th>
+        <th>Total sales($)</th>
+        </thead>
+        <tbody>
+            @foreach (var salestotal in (ViewBag.todoWeek))
+            {
+                <tr>
+                    <td>@salestotal.Key.name</td>
+                    <td>@salestotal.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h3>Total Employee Bonus</h3>
+    <table border="0" width="50%" class="table-striped">
+        <thead>
+        <th>Store</th>
+        <th>Employee Bonus($)</th>
+        </thead>
+        <tbody>
+            @foreach (var salestotal in (ViewBag.emBonus))
+            {
+                <tr>
+
+                    <td>@salestotal.Key.name</td>
+                    <td>@salestotal.Value</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    <table border="0" width="30%" class="table-striped">
+        <thead>
+        <th>Store</th>
+        <th>Employee Bonus Last Week($)</th>
+        </thead>
+        <tbody>
+            @foreach (var salestotal in (ViewBag.emBonusWeek))
+            {
+                <tr>
+                    <td>@salestotal.Key.name</td>
+                    <td>@salestotal.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

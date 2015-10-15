@@ -1,0 +1,48 @@
+﻿@model IS7012.ProjectAssignment.Models.Order
+@using IS7012.ProjectAssignment.Models;
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.custName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.custName)
+        </dd>
+
+
+</div>
+    </dl>
+    <h3>Items in list</h3>
+    <table width="50%" border="1">
+        <thead>
+            <th>ItemId</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Cost</th>      
+        </thead>
+        <tbody>
+            @foreach (var displayItem in ViewBag.orderItemList)
+            {
+                <tr>
+                <td>@displayItem.Id</td>
+                <td>@displayItem.bicOrPur.brand</td>
+                <td>@displayItem.bicOrPur.model</td>
+                <td>@displayItem.bicOrPur.cost</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

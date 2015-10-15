@@ -1,0 +1,68 @@
+﻿@model IS7012.ProjectAssignment.Models.Store
+@using IS7012.ProjectAssignment.Models;
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Store</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telephone)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <table width="50%" border="1">
+        <thead>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        </thead>
+        <tbody>
+            @foreach (Employee emp in (ViewBag.empList))
+            {
+                <tr>
+                    <td>@emp.Id</td>
+                    <td>@emp.name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
